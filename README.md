@@ -1,3 +1,3 @@
 # MIMO
 
-Codes come soon.
+Code coming soon.
