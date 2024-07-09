@@ -1,0 +1,1 @@
+export MFIM_DIR=$PWD/src/mfim

@@ -1,0 +1,23 @@
+# eval data configs
+obj_type: "cup"
+shapenet: True
+single_view: True
+multiview_aug: False
+
+# model configs
+model_type: "occ_sdf_scf"
+#weight_path: "../model_weights/bowl/bowl_occsdfscf_dep.pth"
+#weight_path: "../model_weights/cup/cup_occsdfscf_dep.pth"
+weight_path: "/ikun/git_project/multi-feature-implicit-model/model_weights/container/bottle_occsdfscf.pth"
+# weight_path: "../model_weights/hammer/hammer_occsdfscf.pth"
+
+# reconstruction configs
+with_normals: False
+occ: True
+padding: 0.1
+threshold: 0.7
+resolution0: 32
+upsampling_steps: 2
+refinement_steps: 0
+
+vis: False

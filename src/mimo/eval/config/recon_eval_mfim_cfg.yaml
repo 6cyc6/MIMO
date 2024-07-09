@@ -1,0 +1,10 @@
+# reconstruction configs
+with_normals: False
+occ: True
+padding: 0.15
+threshold: 0.7
+resolution0: 32
+upsampling_steps: 2
+refinement_steps: 0
+
+vis: True
