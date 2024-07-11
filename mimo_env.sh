@@ -1,1 +1,1 @@
-export MFIM_DIR=$PWD/src/mfim
+export MIMO_DIR=$PWD/src/mimo

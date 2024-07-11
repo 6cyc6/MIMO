@@ -1,7 +1,7 @@
 import os.path as osp
 import numpy as np
 
-from mfim.eval.rndf.utils.path_util import get_rndf_assets
+from mimo.eval.rndf.utils.path_util import get_rndf_assets
 
 
 SHAPENET_ID_DICT = {}

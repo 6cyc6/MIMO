@@ -10,8 +10,8 @@ import open3d as o3d
 
 from airobot import log_info, log_warn, log_debug, log_critical
 
-from mfim.eval.rndf.utils import util
-from mfim.eval.rndf.opt.optimizer import OccNetOptimizer
+from mimo.eval.rndf.utils import util
+from mimo.eval.rndf.opt.optimizer import OccNetOptimizer
 
 
 def infer_relation_intersection(mc_vis, parent_optimizer, child_optimizer, parent_target_desc, child_target_desc, 

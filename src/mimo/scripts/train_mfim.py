@@ -5,7 +5,7 @@ import torch
 from torch.utils.data import DataLoader
 
 
-from mimo.model.vnn_mfim_net import VNNMIMOShared
+from mimo.model.vnn_mimo_net import VNNMIMOShared
 from mimo.training import losses, training, dataio
 
 p = configargparse.ArgumentParser()

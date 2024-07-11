@@ -15,17 +15,14 @@ from airobot import log_info, log_warn, log_debug, log_critical, set_log_level
 from airobot.utils import common
 from airobot import log_info
 from airobot.utils.common import euler2quat
-from mimo.eval.ndf.robot.multicam import MultiCams
+
 from mimo.model.vnn_occ_net import VNNOccNet, VNNScfNet
+from mimo.model.vnn_mimo_net import VNNMIMONetMulti, VNNMIMOShared
 
-from scipy.spatial.transform import Rotation as R
-
-
+from mimo.eval.ndf.robot.multicam import MultiCams
 from mimo.eval.ndf.utils import util, trimesh_util
 from mimo.eval.ndf.utils.util import np2img, random_pose, matrix_from_pose
-
 from mimo.eval.ndf.opt.optimizer import OccNetOptimizer
-
 from mimo.eval.ndf.config.default_eval_cfg import get_eval_cfg_defaults
 from mimo.eval.ndf.config.default_obj_cfg import get_obj_cfg_defaults
 from mimo.eval.ndf.utils import path_util
@@ -37,8 +34,6 @@ from mimo.eval.ndf.utils.eval_gen_utils import (
     process_demo_data_rack, process_demo_data_shelf, process_xq_data, process_xq_rs_data, safeRemoveConstraint,
     ibs_post_process,
 )
-
-from mimo.model.vnn_mfim_net import VNNMIMONetMulti, VNNMIMOShared
 
 
 def main(args, global_dict):
@@ -242,23 +237,6 @@ def main(args, global_dict):
         demo_target_info_list.append(target_info)
         demo_rack_target_info_list.append(rack_target_info)
         demo_shapenet_ids.append(shapenet_id)
-
-        # demo_pts = rack_target_info['demo_query_pts_real_shape']
-        # demo_shape_pts_world = rack_target_info['demo_obj_pts']
-        #
-        # # ibs = pyibs.IBS(demo_pts, demo_shape_pts_world, n=1000)
-        # # pts = ibs.sample_points()
-        #
-        # # vis
-        # ps.init()
-        # ps.set_up_dir("z_up")
-        #
-        # ps.register_point_cloud("obj", demo_shape_pts_world, radius=0.005, color=[0, 0, 1], enabled=True)
-        # ps.register_point_cloud("demo", demo_pts, radius=0.005, color=[1, 0, 1], enabled=True)
-        # ps.register_point_cloud("rs", place_optimizer_pts, radius=0.005, color=[1, 1, 1], enabled=True)
-        # # ps.register_point_cloud("gripper", pts_mesh, radius=0.005, color=[1, 0, 0], enabled=True)
-        # # ps.register_point_cloud("ibs", pts, radius=0.005, color=[0, 1, 0], enabled=True)
-        # ps.show()
 
         # load ibs
         # grasp
@@ -534,7 +512,6 @@ def main(args, global_dict):
         if args.single_view:
             # ensure that the handle of the mug is visible
             pose_mat = matrix_from_pose(obj_pose_world)
-            # print(pose_mat)
             if obj_class == "mug":
                 x = - pose_mat[0, 2]
                 y = - pose_mat[1, 2]
@@ -581,8 +558,6 @@ def main(args, global_dict):
             seg_idxs.append(obj_inds)
         else:
             for i, cam in enumerate(cams.cams):
-                # if i == 1:
-                #     break
                 # get image and raw point cloud
                 rgb, depth, seg = cam.get_images(get_rgb=True, get_depth=True, get_seg=True)
                 pts_raw, _ = cam.get_pcd(in_world=True, rgb_image=rgb, depth_image=depth, depth_min=0.0, depth_max=np.inf)

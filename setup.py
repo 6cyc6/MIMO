@@ -11,6 +11,7 @@ numpy_include_dir = numpy.get_include()
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
+
 def read_requirements_file(filename):
     req_file_path = '%s/%s' % (dir_path, filename)
     with open(filename) as f:
@@ -116,11 +117,12 @@ setup(
     packages=packages,
     package_dir={'': 'src'},
     python_requires='>=3.8',
-    install_requires=read_requirements_file('requirements.txt'),
+    install_requires=read_requirements_file('requirements.txt') +
+                     ['airobot @ git+https://github.com/Improbable-AI/airobot.git@panda-2f140#egg=airobot'] +
+                     ['urdfpy @ git+https://github.com/erwincoumans/urdfpy.git'],
     ext_modules=cythonize(ext_modules),
     cmdclass={
         'build_ext': BuildExtension.with_options(use_ninja=False)
         # 'build_ext': BuildExtension
     }
 )
-

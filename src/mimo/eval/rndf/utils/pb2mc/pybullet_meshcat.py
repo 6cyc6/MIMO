@@ -15,8 +15,8 @@ from meshcat import transformations as mctf
 
 from airobot import log_info, log_warn, log_debug, log_critical, set_log_level
 
-from mfim.eval.rndf.utils.pb2mc.obj2urdf import obj2urdf
-from mfim.eval.rndf.utils import util, path_util
+from mimo.eval.rndf.utils.pb2mc.obj2urdf import obj2urdf
+from mimo.eval.rndf.utils import util, path_util
 
 
 class PyBulletMeshcat:

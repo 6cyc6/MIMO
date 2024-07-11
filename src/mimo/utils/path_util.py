@@ -10,7 +10,7 @@ def get_ndf_data():
 
 
 def get_mfim_src():
-    return os.environ["MFIM_DIR"]
+    return os.environ["MIMO_DIR"]
 
 
 def get_mfim_model_src():

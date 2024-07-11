@@ -1,6 +1,6 @@
 from yacs.config import CfgNode as CN
 
-from mfim.eval.rndf.config.default_cam_cfg import get_default_cam_cfg
+from mimo.eval.rndf.config.default_cam_cfg import get_default_cam_cfg
 
 
 _C = CN()

@@ -2,8 +2,6 @@
 
 ## Setup
 
----
-
 **Clone this repo**
 ```
 git clone https://github.com/6cyc6/MIMO.git
@@ -29,6 +27,21 @@ pip install -e .
 @todo
 
 ---
+
+## Run Evaluation
+See [here](./doc/eval.md).
+
+---
+
+## Citing
+```
+@article{cai2024mimo,
+  title={Visual Imitation Learning of Task-Oriented Object Grasping and Rearrangement},
+  author={Cai, Yichen and Gao, Jianfeng and Pohl, Christoph and Asfour, Tamim},
+  journal={arXiv preprint arXiv:2403.14000},
+  year={2024}
+}
+```
 
 ## Acknowledgements
 

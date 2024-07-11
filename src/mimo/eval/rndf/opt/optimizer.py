@@ -11,8 +11,8 @@ import meshcat, meshcat.geometry as mcg
 
 from airobot import log_info, log_warn, log_debug, log_critical
 
-from mfim.eval.rndf.utils import util, torch_util, trimesh_util, torch3d_util
-from mfim.eval.rndf.utils.plotly_save import plot3d
+from mimo.eval.rndf.utils import util, torch_util, trimesh_util, torch3d_util
+from mimo.eval.rndf.utils.plotly_save import plot3d
 
 
 class OccNetOptimizer:

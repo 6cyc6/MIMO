@@ -7,7 +7,8 @@ def get_data_src():
 
 def get_rndf_src():
     # return os.environ['RNDF_SOURCE_DIR']
-    return osp.join(os.environ['MFIM_DIR'], 'eval/rndf')
+    return osp.join(os.environ['MIMO_DIR'], 'eval/rndf')
+
 
 def get_rndf_config():
     return osp.join(get_rndf_src(), 'config')
@@ -47,8 +48,3 @@ def get_rndf_assets():
 
 def get_rndf_model_weights():
     return osp.join(get_rndf_src(), 'model_weights')
-
-
-def get_conv_onet_src():
-    assert 'CONV_ONET_SOURCE_DIR' in os.environ.keys(), 'CONV_ONET_SOURCE_DIR not found in environment variables'
-    return os.environ['CONV_ONET_SOURCE_DIR']

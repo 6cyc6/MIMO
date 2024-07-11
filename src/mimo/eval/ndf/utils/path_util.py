@@ -2,7 +2,7 @@ import os, os.path as osp
 
 
 def get_ndf_src():
-    return osp.join(os.environ['MFIM_DIR'], 'eval/ndf')
+    return osp.join(os.environ['MIMO_DIR'], 'eval/ndf')
     # return os.environ['NDF_SOURCE_DIR']
 
 

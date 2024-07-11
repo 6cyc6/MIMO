@@ -6,8 +6,8 @@ import time
 import pybullet as p
 import copy
 
-from mfim.eval.ndf.utils import trimesh_util
-from mfim.eval.rndf.utils import util
+from mimo.eval.ndf.utils import trimesh_util
+from mimo.eval.rndf.utils import util
 
 
 # some helpers

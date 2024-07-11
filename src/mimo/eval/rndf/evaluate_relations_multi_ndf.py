@@ -16,28 +16,28 @@ import pybullet as p
 import polyscope as ps
 import meshcat
 
-from mfim.eval.config.eval_cfg import InferenceConfig
-from mfim.model.vnn_mfim_net import VNNMFIMShared
-from robot_utils.py.utils import load_dataclass
+from mimo.eval.config.eval_cfg import InferenceConfig
+from mimo.model.vnn_mimo_net import VNNMIMOShared
+from mimo.model.vnn_occ_net import VNNOccNet
+from mimo.utils.config_util import load_dataclass
 
 from airobot import log_info, log_warn, log_debug, log_critical, set_log_level
 from airobot.utils import common
 from airobot.utils.pb_util import create_pybullet_client
 from airobot.sensor.camera.rgbdcam_pybullet import RGBDCameraPybullet
 
-from mfim.model.vnn_occ_net import VNNOccNet
-from mfim.reconstruction.mesh_reconstruction import MeshReconstruction
 
-from mfim.eval.rndf.utils import util, path_util
-from mfim.eval.rndf.utils.pb2mc.pybullet_meshcat import PyBulletMeshcat
-from mfim.eval.rndf.config.default_eval_cfg import get_eval_cfg_defaults
-from mfim.eval.rndf.share.globals import bad_shapenet_mug_ids_list, bad_shapenet_bowls_ids_list, \
+from mimo.reconstruction.mesh_reconstruction import MeshReconstruction
+from mimo.eval.rndf.utils import util, path_util
+from mimo.eval.rndf.utils.pb2mc.pybullet_meshcat import PyBulletMeshcat
+from mimo.eval.rndf.config.default_eval_cfg import get_eval_cfg_defaults
+from mimo.eval.rndf.share.globals import bad_shapenet_mug_ids_list, bad_shapenet_bowls_ids_list, \
     bad_shapenet_bottles_ids_list
-from mfim.eval.rndf.opt.optimizer import OccNetOptimizer
-from mfim.eval.rndf.robot.multicam import MultiCams
-from mfim.eval.rndf.utils.eval_gen_utils import constraint_obj_world, safeCollisionFilterPair, safeRemoveConstraint
-from mfim.eval.rndf.eval.relation_tools.multi_ndf import infer_relation_intersection, create_target_descriptors
-from mfim.eval.rndf.utils.util import matrix_from_pose
+from mimo.eval.rndf.opt.optimizer import OccNetOptimizer
+from mimo.eval.rndf.robot.multicam import MultiCams
+from mimo.eval.rndf.utils.eval_gen_utils import constraint_obj_world, safeCollisionFilterPair, safeRemoveConstraint
+from mimo.eval.rndf.eval.relation_tools.multi_ndf import infer_relation_intersection, create_target_descriptors
+from mimo.eval.rndf.utils.util import matrix_from_pose
 
 NOISE_VALUE_LIST = [0.01, 0.02, 0.03, 0.04, 0.06, 0.08, 0.16, 0.24, 0.32, 0.4]
 
@@ -163,8 +163,8 @@ def main(args):
         child_model_path_ebm = child_model_path
 
     if args.model == "mimo":
-        parent_model = VNNMFIMShared(latent_dim=256, model_type='pointnet', o_dim=16, return_features=True).cuda()
-        child_model = VNNMFIMShared(latent_dim=256, model_type='pointnet', o_dim=16, return_features=True).cuda()
+        parent_model = VNNMIMOShared(latent_dim=256, model_type='pointnet', o_dim=16, return_features=True).cuda()
+        child_model = VNNMIMOShared(latent_dim=256, model_type='pointnet', o_dim=16, return_features=True).cuda()
     else:
         parent_model = VNNOccNet(latent_dim=256, model_type='pointnet', return_features=True, sigmoid=True).cuda()
         child_model = VNNOccNet(latent_dim=256, model_type='pointnet', return_features=True, sigmoid=True).cuda()
