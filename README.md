@@ -20,6 +20,7 @@ pip install numpy cython  # required for building the project
 conda install pytorch==2.1.1 torchvision==0.16.1 torchaudio==2.1.1 pytorch-cuda=11.8 -c pytorch -c nvidia
 pip install -e .
 ```
+(If you meet problem while installing PyMCubes, try `pip install PyMCubes==0.1.4`.)
 
 ---
 
