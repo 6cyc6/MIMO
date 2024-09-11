@@ -4,10 +4,10 @@
 
 set -euo pipefail
 
-if [ -z $MFIM_DIR ]; then echo 'Please source "mimo_env.sh" first'
+if [ -z $MIMO_DIR ]; then echo 'Please source "mimo_env.sh" first'
 else
 wget -O rndf_obj_assets.tar.gz https://www.dropbox.com/s/jzj24jig5fmyt5b/rndf_obj_assets.tar.gz?dl=0
-OBJ_DESC_DIR=$MFIM_DIR/eval/rndf/descriptions/objects
+OBJ_DESC_DIR=$MIMO_DIR/eval/rndf/descriptions/objects
 mkdir -p $OBJ_DESC_DIR
 mv rndf_obj_assets.tar.gz $OBJ_DESC_DIR
 cd $OBJ_DESC_DIR
